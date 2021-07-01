@@ -57,10 +57,10 @@ public class TileGen : MonoBehaviour
                 tile.sprite = sprites[4];
                 break;
             case "beach":
-                tile.color = beach;
+                tile.sprite = sprites[7];
                 break;
             case "shallow_sea":
-                tile.color = shallow_sea;
+                tile.sprite = sprites[6];
                 break;
             case "deep_sea":
                 tile.sprite = sprites[5];

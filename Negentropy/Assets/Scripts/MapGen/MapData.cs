@@ -65,7 +65,7 @@ public class MapData
         {
             return "beach";
         }
-        else if(pHeight > 0.2)
+        else if(pHeight > 0.18)
         {
             return "shallow_sea";
         }
