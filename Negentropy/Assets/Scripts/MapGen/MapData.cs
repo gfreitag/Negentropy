@@ -6,19 +6,13 @@ using UnityEngine.Tilemaps;
 [System.Serializable]
 public class MapData
 {
-    public int width;
-    public int height;
+    public static int width = 100;
+    public static int height = 100;
     public Tilemap tilemap;
 
     public float[,] heightNoiseData;
     public float[,] temperatureNoiseData;
     public float[,] rainfallNoiseData;
-
-    public MapData(int pWidth, int pHeight)
-    {
-        width = pWidth;
-        height = pHeight;
-    }
 
     public static string getBiome(float pHeight, float pTemp, float pRainfall)
     {
@@ -27,7 +21,7 @@ public class MapData
             return "mountain_range";
         }
         else if(pHeight>0.45){
-            if(pTemp < 0.2){
+            if(pTemp < 0.33){
                 if(pRainfall < 0.33){
                     return "tundra";
                 }
@@ -38,7 +32,7 @@ public class MapData
                     return "alpine_forest";
                 }
             }
-            else if(pTemp < 0.4){
+            else if(pTemp < 0.66){
                 if(pRainfall < 0.33){
                     return "savanna";
                 }
@@ -65,7 +59,7 @@ public class MapData
         {
             return "beach";
         }
-        else if(pHeight > 0.18)
+        else if(pHeight > 0.15)
         {
             return "shallow_sea";
         }
