@@ -6,8 +6,8 @@ using UnityEngine.Tilemaps;
 [System.Serializable]
 public class MapData
 {
-    public static int width = 100;
-    public static int height = 100;
+    public static int width = 50;
+    public static int height = 50;
     public Tilemap tilemap;
 
     public float[,] heightNoiseData;

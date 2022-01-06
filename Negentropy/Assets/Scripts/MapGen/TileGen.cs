@@ -10,9 +10,9 @@ public class TileGen : MonoBehaviour
     //private static Color mountain_range = new Color(220f/255f, 220f/255f, 220f/255f);
     //private static Color savanna = new Color(187f/255f, 223f/255f, 42f/255f);
     //private static Color grassland = new Color(45f/255f, 218f/255f, 33f/255f);
-    private static Color deciduous_forest = new Color(95f/255f, 168f/255f, 39f/255f);
+    //private static Color deciduous_forest = new Color(95f/255f, 168f/255f, 39f/255f);
     //private static Color desert = new Color(249f/255f, 158f/255f, 79f/255f);
-    private static Color swamp = new Color(111f/255f, 141f/255f, 73f/255f);
+    //private static Color swamp = new Color(111f/255f, 141f/255f, 73f/255f);
     //private static Color rainforest = new Color(10f/255f, 105f/255f, 48f/255f);
     //private static Color beach = new Color(236f/255f, 219f/255f, 152f/255f);
     //private static Color shallow_sea = new Color(81f/255f, 122f/255f, 205f/255f);
@@ -45,13 +45,13 @@ public class TileGen : MonoBehaviour
                 tile.sprite = sprites[1];
                 break;
             case "deciduous_forest":
-                tile.color = deciduous_forest;
+                tile.sprite = sprites[10];
                 break;
             case "desert":
                 tile.sprite = sprites[0];
                 break;
             case "swamp":
-                tile.color = swamp;
+                tile.sprite = sprites[11];
                 break;
             case "rainforest":
                 tile.sprite = sprites[4];
@@ -70,6 +70,7 @@ public class TileGen : MonoBehaviour
                 tile.color = blank;
                 break;
         }
+        tile.biome = biome;
         return tile;
     }
 }

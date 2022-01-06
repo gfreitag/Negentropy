@@ -167,8 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapdata:
-    width: 0
-    height: 0
     tilemap: {fileID: 0}
   tilemap: {fileID: 354298260}
   tilegen: {fileID: 2010094084}
@@ -594,6 +592,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fc4985cc2d359418fbba21d410ab56fe, type: 3}
   - {fileID: 21300000, guid: dd230aa1daf3b4aaa9ce0309b6454c7d, type: 3}
   - {fileID: 21300000, guid: cefe548fc75c6439c9d37359cda71f21, type: 3}
+  - {fileID: 21300000, guid: d542e6aea03b549f793f95d085c44adc, type: 3}
+  - {fileID: 21300000, guid: 93a7df02b4ac7447398223042c80d6b5, type: 3}
+  - {fileID: 21300000, guid: 54957a0fa923e4d7bb7568079c9e1506, type: 3}
+  - {fileID: 21300000, guid: 471b81615b6554ec4816afa601255989, type: 3}
 --- !u!4 &2010094085
 Transform:
   m_ObjectHideFlags: 0

@@ -11,13 +11,13 @@ public class SaveAndLoader : MonoBehaviour
     BinaryFormatter bf;
     public MapGenerator mapGenerator;
 
-    public void loadData()
+    public void loadMap(string optfile = "")
     {
         //binary formatter
         bf = new BinaryFormatter();
 
         //open files
-        FileStream mapGenFile = File.Open(Application.persistentDataPath +  "/mapGenData.dat", FileMode.Open);
+        FileStream mapGenFile = File.Open(Application.persistentDataPath +  "/mapGenData"+optfile+".dat", FileMode.Open);
 
         //save data object deserialization
         MapGeneratorSaveData mapGenSave = (MapGeneratorSaveData)bf.Deserialize(mapGenFile);
@@ -31,13 +31,13 @@ public class SaveAndLoader : MonoBehaviour
     }
 
     //saves data to binary file.
-    public void saveData()
+    public void saveMap(string optfile = "")
     {
         //binary formatter
         bf = new BinaryFormatter();
 
         //binary file creation
-        FileStream mapGenFile = File.Create(Application.persistentDataPath +  "/mapGenData.dat");
+        FileStream mapGenFile = File.Create(Application.persistentDataPath +  "/mapGenData"+optfile+".dat");
 
         //save data object creation
         MapGeneratorSaveData mapGenSave = new MapGeneratorSaveData();
@@ -63,6 +63,7 @@ public class SaveAndLoader : MonoBehaviour
                 temp.height = orig[x,y].height;
                 temp.temperature = orig[x,y].temperature;
                 temp.rainfall = orig[x,y].rainfall;
+                temp.biome = orig[x,y].biome;
                 ret_arr[x,y] = temp;
             }
         }
@@ -82,4 +83,5 @@ public class CustomTileSaveData
     public float height;
     public float temperature;
     public float rainfall;
+    public String biome;
 }

@@ -35,21 +35,27 @@ public class MapGenerator : MonoBehaviour
             noiseHeight = new FastNoiseLite(randHeightSeed);
             noiseTemp = new FastNoiseLite(randTempSeed);
             noiseRain = new FastNoiseLite(randRainSeed);
-            noiseHeight.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
-            noiseTemp.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
-            noiseRain.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
-            noiseHeight.SetFrequency(0.056f);
-            noiseTemp.SetFrequency(0.04f);
-            noiseRain.SetFrequency(0.04f);
+            //noiseHeight.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
+            //noiseTemp.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
+            //noiseRain.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
+            //noiseHeight.SetFrequency(0.056f);
+            //noiseTemp.SetFrequency(0.04f);
+            //noiseRain.SetFrequency(0.04f);
+            noiseHeight.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2S);
+            noiseTemp.SetNoiseType(FastNoiseLite.NoiseType.Value);
+            noiseRain.SetNoiseType(FastNoiseLite.NoiseType.Value);
+            noiseHeight.SetFrequency(0.064f);
+            noiseTemp.SetFrequency(0.134f);
+            noiseRain.SetFrequency(0.134f);
             generateNoiseData(ref mapdata.heightNoiseData, noiseHeight);
             generateNoiseData(ref mapdata.temperatureNoiseData, noiseTemp);
             generateNoiseData(ref mapdata.rainfallNoiseData, noiseRain);
             fillMap();
-            saveAndLoad.saveData();
+            saveAndLoad.saveMap();
         }
         else
         {
-            saveAndLoad.loadData();
+            saveAndLoad.loadMap();
         }
     }
 
@@ -99,13 +105,27 @@ public class MapGenerator : MonoBehaviour
 
     private void assignTileData(int x, int y, float height, float temperature, float rainfall)
     {
-        pixels[x,y].setHeight(height);
-        pixels[x,y].setTemperature(temperature);
-        pixels[x,y].setRainfall(rainfall);
+        pixels[x,y].height = height;
+        pixels[x,y].temperature = temperature;
+        pixels[x,y].rainfall = rainfall;
     }
 
     public CustomTile[,] getPixels()
     {
         return pixels;
     }
+
+    private void placeCity(bool player = false)
+    {
+        int xPos;
+        int yPos;
+        do {
+            xPos = Random.Range(1,MapData.width+1);
+            yPos = Random.Range(1,MapData.height+1);
+        } while (pixels[xPos,yPos].height>0.45&&pixels[xPos,yPos].hasCity==false);
+
+    }
+
+
+
 }
